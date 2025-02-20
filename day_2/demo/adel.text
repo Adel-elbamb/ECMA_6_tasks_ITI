@@ -1,0 +1,77 @@
+Object New Features
+------------------------------
+-- Object.keys
+-- Object.values
+-- Object.entries
+-- Object.assign
+-------------------------------
+-- Deal With asynchrouns Code How to execute in mempry
+    -- web api -- event loop - message queue
+-- callback hell
+-- promises
+-- fetch 
+    -- then catch
+    -- async await
+============================object _in js ================
+let myKey = "color";
+
+let person = {
+	fname:"adel",
+	[myKey]: "red",  === > take the value of varile add as key 
+};
+
+console.log(person);
+
+=======================================================================
+// let keys = Object.keys(person); //==> return the array of keys [fname , color ]
+// let values = Object.values(person); ===> return the array of values ["adel","red"]
+// let entries = Object.entries(person);====> return the array of keys and values as nested array [[fname : adel],[color : red]]
+
+========================nots for Object.assign() ===========
+let result = object.assign(object1,object2) 
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+
+Object.assign(target, source);
+
+console.log(target); // { a: 1, b: 4, c: 5 }
+
+🔹 What happens?
+
+The b property from source overwrites the b in target.
+The c property is added to target.
+target is modified and returned.
+
+=====================================nots ===============================
+const obj1 = { a: 1, nested: { x: 10 } };
+const obj2 = { b: 2 };
+
+const merged = Object.assign({}, obj1, obj2);
+merged.nested.x = 20;
+
+console.log(obj1.nested.x); // 20 (oops! it changed)
+========================================notes =================================
+// function showData(options = {}) {
+// 	let defaultValues = {
+// 		fname: "default fname",
+// 		age: "default age",
+// 		address: "default address",
+// 	};
+
+// 	Object.assign(defaultValues, options);
+        ==>  options =>when send object in function object in funcation can make the override for the defult object 
+
+
+// 	console.log(`fname = ${defaultValues.fname}
+//          age= ${defaultValues.age}
+//          address = ${defaultValues.address}
+//          `);
+// }
+
+// showData({ fname: "alaa" });
+// showData();
+// showData({
+// 	fname: "mona",
+// 	address: "alex",
+// 	age: 20,
+// });
